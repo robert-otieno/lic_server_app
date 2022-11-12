@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shepherds",
+  "info": {
+    "singularName": "shepherd",
+    "pluralName": "shepherds",
+    "displayName": "Shepherds",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true,
+      "regex": "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$"
+    },
+    "designation": {
+      "type": "string",
+      "required": true
+    },
+    "center_ministry": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "branch": {
+      "type": "string",
+      "required": true
+    },
+    "souls": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::soul.soul",
+      "mappedBy": "shepherd"
+    }
+  }
+}

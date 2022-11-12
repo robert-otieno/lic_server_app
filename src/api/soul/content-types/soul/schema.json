@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "souls",
+  "info": {
+    "singularName": "soul",
+    "pluralName": "souls",
+    "displayName": "Souls",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "regex": "^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\\s\\./0-9]*$"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "basonta": {
+      "type": "string"
+    },
+    "first_time_visitor": {
+      "type": "boolean"
+    },
+    "new_convert": {
+      "type": "boolean"
+    },
+    "shepherd": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::shepherd.shepherd",
+      "inversedBy": "souls"
+    },
+    "attendances": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::attendance.attendance",
+      "mappedBy": "soul"
+    }
+  }
+}
